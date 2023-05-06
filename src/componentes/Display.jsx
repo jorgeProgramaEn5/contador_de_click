@@ -1,10 +1,10 @@
 import '../estilos/Display.css';
 
-const Display = ()=>{
+const Display = ({ contador })=>{
     return (
       <div>
         <div className='display_content'>
-          <p>0</p>
+          <p>{ contador }</p>
         </div>
       </div>
     )

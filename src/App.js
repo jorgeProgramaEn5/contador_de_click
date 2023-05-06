@@ -8,9 +8,16 @@ import banner_bici from './img/banner_bici.jpg'
 class App extends React.Component {
   constructor() {
     super()
-    this.state= 0;
+    this.contador= 0;
   }
 
+  manejarClick(){
+    console.log("click")
+  }
+
+  clearClick = ()=>{
+   console.log("clear click")
+  }
 
   render() { 
     return (
@@ -28,17 +35,21 @@ class App extends React.Component {
             />
           </div>
 
-          <Display />
+          <Display 
+            contador={this.contador}
+          />
 
           <div className='contendor_boton'>
             <Boton 
               text='Click' 
-              esBotonClick= ''
+              esBotonClick= {true}
+              manejarClick={this.manejarClick}
             />
 
             <Boton 
               text='Reiniciar'
-              esBotonClick= 'true'
+              esBotonClick= {false}
+              manejarClick={this.clearClick}
             />
 
           </div>
