@@ -16,9 +16,17 @@
 }
 
 .btn-click {
-    background-color: #8ed3ea;
+    background-color:  #6ec1cc;
 }
 
 .btn-reiniciar {
     background-color: #e78c48;
+}
+
+.btn-click:hover {
+    background-color:  #5890c0;
+}
+
+.btn-reiniciar:hover {
+    background-color:  #b16041;
 }

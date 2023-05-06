@@ -1,62 +1,60 @@
-import React from 'react';
+import { useState } from 'react';
 import './estilos/App.css';
 import Display from './componentes/Display';
 import Boton from './componentes/Boton';
 import banner_bici from './img/banner_bici.jpg'
 
 
-class App extends React.Component {
-  constructor() {
-    super()
-    this.contador= 0;
-  }
+const App = ()=>{
+  
+  let [contador, setContador] = useState(0);
 
-  manejarClick(){
+  const manejarClick = ()=>{
     console.log("click")
-  }
+    setContador(contador + 1);  
+  };
 
-  clearClick = ()=>{
-   console.log("clear click")
-  }
+  const clearClick = ()=>{
+    console.log("clear click")
+    setContador(contador =0);
+  };
 
-  render() { 
-    return (
-      <div className="App">
-        <div className='contendor_app'>
-          <h1>
-            Cantidad de km que deseas recorrer
-          </h1>
+  return (
+    <div className="App">
+      <div className='contendor_app'>
+        <h1>
+          Cantidad de km que deseas recorrer
+        </h1>
 
-          <div className="contenedor_img">
-            <img 
-              className='img'
-              src={banner_bici}
-              alt='baner'
-            />
-          </div>
+        <div className="contenedor_img">
+          <img 
+            className='img'
+            src={banner_bici}
+            alt='baner'
+          />
+        </div>
 
-          <Display 
-            contador={this.contador}
+        <Display 
+          contador={contador}
+        />
+
+        <div className='contendor_boton'>
+          <Boton 
+            text='Click' 
+            esBotonClick= {true}
+            manejarClick={manejarClick}
           />
 
-          <div className='contendor_boton'>
-            <Boton 
-              text='Click' 
-              esBotonClick= {true}
-              manejarClick={this.manejarClick}
-            />
+          <Boton 
+            text='Reiniciar'
+            esBotonClick= {false}
+            manejarClick={clearClick}
+          />
 
-            <Boton 
-              text='Reiniciar'
-              esBotonClick= {false}
-              manejarClick={this.clearClick}
-            />
-
-          </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default App;
